@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة الإدارة - أرشيف الثقة التجارية</title>
+        
+         <!-- ========== قسم خطوط جوجل ========== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&family=Noto+Naskh+Arabic:wght@400..700&family=Noto+Sans+Arabic:wght@100..900&family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400..700&display=swap" rel="stylesheet">
+    
+    <!-- ========== قسم أيقونات الخطوط ========== -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+    <!-- css Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/admin.css">
+</head>
+<style>
+ 
+
+</style>
+<body class="theme1">  
+ 
+ 
+   
+<!-- Admin Section -->
+<section id="Admin" class="section">
+    <div class="admin-container">
+        <!-- Admin Header -->
+        <div class="admin-header">
+            <h1 class="admin-title">🔧 لوحة الإدارة</h1>
+            <p class="admin-subtitle">إدارة شاملة لجميع اقسام الارشيف</p>
+        </div>
+        <!-- Admin Stats -->
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-label">الموردين</div>
+                <div class="stat-number" id="suppliersCount">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label" >المنتجات</div>
+                <div class="stat-number" id="productsCount">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label" >الاعضاء</div>
+                <div class="stat-number" id="membersCount">0</div>                    
+            </div>
+            <div class="stat-item">
+                <div class="stat-label" >العملاء</div>
+                <div class="stat-number" id="clientsCount">0</div>                    
+            </div>                
+        </div>
+        <!-- Admin Grid -->
+        <div class="admin-grid">
+            
+            <!-- Suppliers Management -->
+            <div class="admin-section">
+                 <div class="Suppliers-section-header">
+                                <h3><i class='fas fa-users'></i>ادارة الموردين</h3>
+                    <button onclick="window.location.href='add-supplier.html'" class="add-new-Supplier-btn "><i class="fas fa-user-plus"></i> اضافة مورد جديد</button>
+                </div>
+                <ul class="admin-list" id="suppliersList"><!-- تعبئة ديناميكية --></ul>
+            </div>
+            <!-- Users Management -->
+            <div class="admin-section">                
+                <div class="users-section-header">
+                                <h3><i class='fas fa-users'></i> ادارة  الفريق</h3>
+                    <button onclick="window.location.href='add-new-user.html'" class="add-new-user-btn "><i class="fas fa-user-plus"></i> اضافة عضو جديد</button>
+                </div>
+                <ul class="users-list" id="usersList">
+                    <li> 
+                        <div class="user-info">
+                            <div class="user-header">
+                                <p class="users-name"><i class="fa-solid fa-user"></i> admin 🏆</p>
+                                <small class="last-activity"><i class="fa-solid fa-clock"></i> آخر نشاط: 2023-10-01</small>
+                            </div>
+                            <div class="user-counters">
+                                <small><i class="fa-solid fa-box"></i> عدد المنتجات: 2</small>
+                                <small><i class="fa-solid fa-star"></i> عدد النقاط: 150</small>
+                            </div>
+                            <div class="user-actions">
+                                <button onclick="showUserDetails('admin')" class="admin-btn info btn-xsmall"><i class="fa-solid fa-info-circle"></i> تفاصيل </button>
+                                <button onclick="honorUser('admin')" class="admin-btn success btn-xsmall"><i class="fa-solid fa-award"></i> تكريم</button>
+                                <button onclick="showDeleteConfirm('admin')" class="admin-btn danger btn-xsmall"><i class="fa-solid fa-trash"></i> حذف</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="user-info">
+                            <div class="user-header">
+                                <p class="users-name"><i class="fa-solid fa-user"></i> سارة_التسويق</p>
+                                <small class="last-activity"><i class="fa-solid fa-clock"></i> آخر نشاط: 2023-10-02</small>
+                            </div>
+                            <div class="user-counters">
+                                <small><i class="fa-solid fa-box"></i> عدد المنتجات: 2</small>
+                                <small><i class="fa-solid fa-star"></i> عدد النقاط: 120</small>
+                            </div>
+                            <div class="user-actions">
+                                <button onclick="showUserDetails('سارة_التسويق')" class="admin-btn info btn-xsmall"><i class="fa-solid fa-info-circle"></i> تفاصيل </button>
+                                <button onclick="honorUser('سارة_التسويق')" class="admin-btn success btn-xsmall"><i class="fa-solid fa-award"></i> تكريم</button>
+                                <button onclick="showDeleteConfirm('سارة_التسويق')" class="admin-btn danger btn-xsmall"><i class="fa-solid fa-trash"></i> حذف</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="user-info">
+                            <div class="user-header">
+                                <p class="users-name"><i class="fa-solid fa-user"></i> محمد_الإلكترونيات</p>
+                                <small class="last-activity"><i class="fa-solid fa-clock"></i> آخر نشاط: 2023-10-03</small>
+                            </div>
+                            <div class="user-counters">
+                                <small><i class="fa-solid fa-box"></i> عدد المنتجات: 2</small>
+                                <small><i class="fa-solid fa-star"></i> عدد النقاط: 180</small>
+                            </div>
+                            <div class="user-actions">
+                                <button onclick="showUserDetails('محمد_الإلكترونيات')" class="admin-btn info btn-xsmall"><i class="fa-solid fa-info-circle"></i> تفاصيل </button>
+                                <button onclick="honorUser('محمد_الإلكترونيات')" class="admin-btn success btn-xsmall"><i class="fa-solid fa-award"></i> تكريم</button>
+                                <button onclick="showDeleteConfirm('محمد_الإلكترونيات')" class="admin-btn danger btn-xsmall"><i class="fa-solid fa-trash"></i> حذف</button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- Membership Requests -->
+                <div class="users-section-header mt22 fs16">
+                    <h3><i class="fa-solid fa-user-check"></i> طلبات العضوية</h3>
+                </div>
+                <ul class="users-list text3" id="membershipRequestsList">
+                    <!-- سيتم تعبئة طلبات العضوية ديناميكياً -->
+                </ul>
+                <small id="membershipRequestsNote" class="block placeholder mt6">
+                    في حال عدم وجود جدول "membership_requests" سيتم عرض الأعضاء ذوي الحالة "pending".
+                </small>
+            </div>
+                        
+                        
+            <!-- Products Management -->
+            <div class="admin-section">
+                         <div class="Products-section-header">
+                                <h3>📦 إدارة المنتجات</h3>
+                    <button onclick="window.location.href='add-product.html'" class="add-new-Product-btn "><i class="fa-solid fa-cart-plus"></i> اضافة منتج جديد</button>
+                </div>
+                <div class="filter-section">
+                    <select class="filter-select" id="categoryFilter">
+                        <option value="">جميع الفئات</option>
+                        <optgroup label="البريكاست">
+                            <option value="بريكاست إنشائي">بريكاست إنشائي</option>
+                            <option value="بريكاست للبنية التحتية">بريكاست للبنية التحتية</option>
+                            <option value="بريكاست معماري/ديكوري">بريكاست معماري/ديكوري</option>
+                        </optgroup>
+                        <optgroup label="الماكينات">
+                            <option value="ماكينات البناء والإنشاءات">ماكينات البناء والإنشاءات</option>
+                            <option value="ماكينات الورشة">ماكينات الورشة</option>
+                            <option value="ماكينات التشغيل والصيانة">ماكينات التشغيل والصيانة</option>
+                        </optgroup>
+                        <optgroup label="خطوط الإنتاج">
+                            <option value="خطوط إنتاج مواد غذائية">خطوط إنتاج مواد غذائية</option>
+                            <option value="خطوط إنتاج مواد بناء">خطوط إنتاج مواد بناء</option>
+                            <option value="خطوط تجميع وتصنيع بسيطة">خطوط تجميع وتصنيع بسيطة</option>
+                        </optgroup>
+                        <optgroup label="المعدات الصناعية">
+                            <option value="معدات رفع ومناولة">معدات رفع ومناولة</option>
+                            <option value="أدوات كهربائية صناعية">أدوات كهربائية صناعية</option>
+                            <option value="معدات السلامة والأمان">معدات السلامة والأمان</option>
+                            <option value="مولدات الطاقة">مولدات الطاقة</option>
+                        </optgroup>
+                    </select>
+                    <select class="filter-select" id="supplierFilter">
+                        <option value="">جميع الموردين</option>
+                        
+                    </select>
+                    <select class="filter-select" id="statusFilter">
+                        <option value="">جميع المستخدمين</option>
+                        
+                    </select>
+                </div>
+                <div class="products-list" id="productsList">
+                    <div class="product-item">
+                        <div class="product-name">
+                            <span>هاتف ذكي متقدم</span>
+                            <span class="product-serial">#SP001</span>
+                        </div>
+                        <div class="product-category">إلكترونيات</div>
+                        <div class="product-user">admin</div>
+                        <div class="product-actions">
+                            <button onclick="viewProduct('SP001')" class="admin-btn info btn-xsmall"><i class="fas fa-eye"></i> عرض</button>
+                            <button class="admin-btn info btn-xsmall">
+                    <i class="fas fa-store"></i> ترحيل للمتجر
+                  </button>
+                            <button onclick="showDeleteConfirm('SP001')" class="admin-btn danger btn-xsmall"><i class="fas fa-trash"></i> حذف</button>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">
+                            <span>سماعات لاسلكية</span>
+                            <span class="product-serial">#SP002</span>
+                        </div>
+                        <div class="product-category">إلكترونيات</div>
+                        <div class="product-user">سارة_التسويق</div>
+                        <div class="product-actions">
+                            <button onclick="viewProduct('SP002')" class="admin-btn info btn-xsmall"><i class="fas fa-eye"></i> عرض</button>
+                           <button class="admin-btn info btn-xsmall">
+                    <i class="fas fa-store"></i> ترحيل للمتجر
+                  </button>
+                            <button onclick="showDeleteConfirm('SP002')" class="admin-btn danger btn-xsmall"><i class="fas fa-trash"></i> حذف</button>
+                        </div>
+                    </div>
+                    <div class="product-item">
+                        <div class="product-name">
+                            <span>جهاز كمبيوتر محمول</span>
+                            <span class="product-serial">#SP003</span>
+                        </div>
+                        <div class="product-category">إلكترونيات</div>
+                        <div class="product-user">محمد_الإلكترونيات</div>
+                        <div class="product-actions">
+                            <button onclick="viewProduct('SP003')" class="admin-btn info btn-xsmall"><i class="fas fa-eye"></i> عرض</button>
+                           <button class="admin-btn info btn-xsmall">
+                    <i class="fas fa-store"></i> ترحيل للمتجر
+                  </button>
+                            <button onclick="showDeleteConfirm('SP003')" class="admin-btn danger btn-xsmall"><i class="fas fa-trash"></i> حذف</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tasks Follow-up -->
+            <div class="admin-section">
+                <h3><i class="fa-solid fa-bell"></i> ادارة المهام و الطلبات</h3>
+                <div class="admin-section-header" id="SingleTasksList">
+				<h4 class="admin-section-title">  المهام الفردية</h4>
+				 <button  class="add-new-tasx-btn"  id="AddNewTasx"><i class="fas fa-sign"></i> مهمة فردية جديدة</button>
+                 </div>
+				<div class="task-info">
+                        <h4 class="task-name"><i class="fa-solid fa-check-double"></i>اضافة 5 منتجات جديدة</h4>
+                        <div class="task-row" id="AssignedUser"><i class="fa-solid fa-user"></i> العضو:  محمد</div>
+                         <div class= "task-row" id="tasxDeadline"><i class= "fa-solid fa-info-circle "></i> التسليم : 7/12</div> 
+                        <div class="task-stat pending" id="tasxStat"><i class="fa-solid fa-flag"></i> معلقة</div>
+                        <div class="task-actions"><button class="actions-task-btn" onclick="deleteTaskFollowup(this, '${t.id}')"><i class="fa-solid fa-trash"></i></button> 
+                    </div>
+                </div>
+				<div class="admin-section-header" id="TeamRequests">
+				<h4 class="admin-section-title">  لوحة الطلبات</h4>
+				 <button  class="add-new-tasx-btn" id="AddNewRequest"><i class="fas fa-sign"></i> طلب جماعي جديد</button>
+                 </div>
+				<div class="task-info">
+                        <h4 class="task-name" id="Request"><i class="fa-solid fa-check-double"></i> ابحث عن جهاز تنفس شخصي </h4>
+                        <div class="task-row" id="RequestApplicant"><i class="fa-solid fa-user"></i> مقدم الطلب : محمد</div>
+                         <div class= "task-row" id="RequestAdvocate"><i class="fa-solid fa-user"></i> متبني الطلب : سارة</div> 
+                        <div class="task-stat in-progress" id="RequestStat"><i class="fa-solid fa-flag"></i> قيد التنفيذ</div>
+                        <div class="task-actions"><button class="actions-task-btn" onclick="deleteRequest(this, '${t.id}')"><i class="fa-solid fa-trash"></i></button> 
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Management -->
+            <div class="admin-section" id="chatManagementSection">
+                <div class="chat-mgmt-header flex sb ai-center gap10 wrap">
+                    <h3 class="m0 flex ai-center gap8"><i class="fas fa-comments"></i> إدارة الدردشات</h3>
+                    <div class="chat-mgmt-actions flex gap8 ai-center">
+                        <input type="text" id="chatMgmtSearch" class="settings-input minw220" placeholder="ابحث في المحادثات">
+                        <button id="newDirectMsgBtn" class="admin-btn info btn-xsmall"><i class="fas fa-paper-plane"></i> رسالة خاصة جديدة</button>
+                    </div>
+                </div>
+                <div class="chat-mgmt-tabs flex gap6 my10">
+                    <button class="admin-btn btn-xsmall" data-tab="group">دردشات الفريق</button>
+                    <button class="admin-btn btn-xsmall" data-tab="direct">الرسائل الخاصة</button>
+                    <button class="admin-btn btn-xsmall" data-tab="ai">محادثات الذكاء الاصطناعي</button>
+                </div>
+                <div class="chat-mgmt-content">
+                    <div id="chatMgmtGroup" class="chat-mgmt-pane">
+                        <ul id="chatMgmtGroupList" class="admin-list"><!-- تعبئة جماعية --></ul>
+                    </div>
+                    <div id="chatMgmtDirect" class="chat-mgmt-pane hidden">
+                        <ul id="chatMgmtDirectList" class="admin-list"><!-- تعبئة محادثات مباشرة --></ul>
+                    </div>
+                    <div id="chatMgmtAi" class="chat-mgmt-pane hidden">
+                        <ul id="chatMgmtAiList" class="admin-list"><!-- تعبئة AI --></ul>
+                    </div>
+                </div>
+                <small class="placeholder block mt6">يمكنك النقر على محادثة لفتحها أو أرشفتها لاحقاً.</small>
+            </div>
+
+            <!-- Backup Management -->
+            <div class="admin-section">
+                <h3>💾 إدارة النسخ الاحتياطية</h3>
+                <div class="backup-actions">
+                    <button onclick="createBackup()" class="admin-btn success btn-full"><i class="fas fa-download"></i> إنشاء نسخة احتياطية</button>
+                    <button onclick="downloadBackup()" class="admin-btn info btn-full"><i class="fas fa-cloud-download-alt"></i> تحميل آخر نسخة</button>
+                    <label for="backupFile" class="file-label">
+                        <button type="button" class="admin-btn warning btn-full"><i class="fas fa-upload"></i> استعادة من ملف</button>
+                        <input type="file" id="backupFile" class="file-input" accept=".json,.sql">
+                    </label>
+                    <button onclick="exportCSVBackup()" class="admin-btn info btn-full"><i class="fas fa-file-csv"></i> تصدير CSV (جداول)</button>
+                    <button onclick="exportNDJSONBackup()" class="admin-btn info btn-full"><i class="fas fa-stream"></i> تصدير NDJSON</button>
+                    <button onclick="copyBackupToClipboard()" class="admin-btn warning btn-full"><i class="fas fa-clipboard"></i> نسخ JSON للحافظة</button>
+                    <button onclick="exportZipBackup()" class="admin-btn success btn-full"><i class="fas fa-file-archive"></i> تصدير ZIP</button>
+                    <!-- <button onclick="clearAllData()" class="admin-btn danger btn-full"><i class="fas fa-exclamation-triangle"></i> مسح جميع البيانات</button> -->
+                </div>
+                <div class="backup-info">
+                    <p id="lastBackupInfo"><i class="fas fa-info-circle"></i> لا توجد نسخ احتياطية بعد</p>
+                    <div id="backupLog" class="tr mt8"></div>
+                </div>
+            </div>
+            <!-- Settings -->
+            <div class="admin-section">
+                <h3>⚙️ إعدادات النظام</h3>
+                <form class="settings-form">
+                    <div class="form-group">
+                        <label for="siteName">اسم الموقع</label>
+                        <input type="text" id="siteName" class="settings-input" value="أرشيف الثقة التجارية">
+                    </div>
+                    <div class="form-group">
+                        <label for="siteDescription">وصف الموقع</label>
+                        <textarea id="siteDescription" class="settings-textarea">منصة شاملة لإدارة المنتجات والموردين</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">البريد الإلكتروني للتواصل</label>
+                        <input type="email" id="contactEmail" class="settings-input" value="admin@trustarchive.com">
+                    </div>
+                    <button type="button" onclick="saveSettings()" class="admin-btn success btn-full"><i class="fas fa-save"></i> حفظ الإعدادات</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+       
+
+
+        
+        <!-- Include Supabase and services -->
+    <script src="js/seed-categories.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+        
+        <!--  Javascript -->
+        <script src="js/nav.js"></script>
+        <script src="js/chat.js"></script>
+        <script src="js/admin-page-init.js"></script>      
+    <script src="js/theme.js"></script>
+    <script src="js/theme-init.js"></script>
+</body>
+</html>

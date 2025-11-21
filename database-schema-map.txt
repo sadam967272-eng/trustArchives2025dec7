@@ -1,0 +1,90 @@
+خارطة حقول قاعدة البيانات - أرشيف الثقة التجارية
+================================================
+
+1. جدول المنتجات (Products)
+   يستخدم في صفحة: /add-product
+   ---------------------------------------------------
+   - name (String): اسم المنتج
+   - category (String/Enum): الفئة الرئيسية (البريكاست، الماكينات، إلخ)
+   - sub_category (String): الفئة الفرعية
+   - brand (String): العلامة التجارية
+   - model (String): الموديل
+   - sku (String): الرقم التسلسلي للمخزون (SKU)
+   - description (Text): وصف المنتج
+   - price (Decimal): السعر
+   - currency (String): العملة (افتراضي USD)
+   - quantity (Integer): الكمية المتوفرة
+   - images (Array of Strings/URLs): روابط صور المنتج
+   - video_url (String): رابط فيديو يوتيوب
+   - catalog_file (String/URL): ملف الكتالوج (PDF)
+   - manual_file (String/URL): دليل التشغيل (PDF/Doc)
+   - certificates_files (Array of Strings/URLs): شهادات الجودة
+   - drawings_files (Array of Strings/URLs): ملفات الرسومات (DWG/CAD)
+   - supplier_id (Foreign Key -> Suppliers): معرف المورد
+   - supplier_price (Decimal): سعر الشراء من المورد
+   - inventory_unit (String): وحدة المخزون (عدد، متر، طن...)
+   - visibility (Enum): public/private
+   - seo_keywords (String): كلمات مفتاحية
+   - internal_notes (Text): ملاحظات داخلية
+
+2. جدول قطع الغيار (Spare Parts)
+   يستخدم في صفحة: /add-spare-part
+   ---------------------------------------------------
+   - parent_product_id (Foreign Key -> Products): المنتج الأساسي المرتبط
+   - sub_category (String): الفئة الفرعية (كهربائية، ميكانيكية...)
+   - location_in_machine (String): موقع القطعة في المنتج
+   - part_manual_number (String): رقم دليل الأجزاء
+   - name (String): اسم القطعة
+   - part_number (String): رقم القطعة (SKU)
+   - brand (String): العلامة التجارية
+   - description (Text): وصف القطعة
+   - price (Decimal): سعر البيع
+   - quantity (Integer): الكمية في المخزون
+   - images (Array of Strings/URLs): صور القطعة
+
+3. جدول مستلزمات التشغيل (Operational Accessories)
+   يستخدم في صفحة: /add-operational-accessories
+   ---------------------------------------------------
+   - parent_product_id (Foreign Key -> Products): المنتج الأساسي المرتبط
+   - type (Enum): تصنيف (استهلاكية، ملحقات، مواد أولية)
+   - name (String): اسم المستلزم
+   - reference_number (String): رقم المرجع
+   - brand (String): العلامة التجارية
+   - price (Decimal): سعر البيع
+   - quantity (Integer): الكمية في المخزون
+   - images (Array of Strings/URLs): صور المستلزم
+
+4. جدول المستخدمين (Users)
+   يستخدم في صفحة: /login (التسجيل) و /admin
+   ---------------------------------------------------
+   - full_name (String): الاسم الكامل
+   - country (String): البلد
+   - age (Integer): العمر
+   - residence (String): السكن
+   - username (String): اسم المستخدم (@...)
+   - password_hash (String): كلمة المرور المشفرة
+   - profile_image (String/URL): الصورة الشخصية
+   - phone_numbers (Array of Strings): أرقام الهواتف
+   - whatsapp (String): رقم الواتساب
+   - email (String): البريد الإلكتروني
+   - notes (Text): ملاحظات إضافية
+   - role (Enum): admin, user
+   - status (Enum): active, pending, suspended
+
+5. جدول المهام (Tasks)
+   يستخدم في صفحة: /admin (Modal)
+   ---------------------------------------------------
+   - title (String): عنوان المهمة
+   - assigned_to (Foreign Key -> Users): الموظف المسؤول
+   - due_date (Date): تاريخ التسليم
+   - details (Text): تفاصيل المهمة
+   - status (Enum): pending, in_progress, completed
+
+6. جدول الطلبات الجماعية (Team Requests)
+   يستخدم في صفحة: /admin (Modal)
+   ---------------------------------------------------
+   - title (String): عنوان الطلب
+   - priority (Enum): normal, high, urgent
+   - details (Text): تفاصيل الطلب
+   - status (Enum): open, closed
+   - created_at (Timestamp): تاريخ النشر

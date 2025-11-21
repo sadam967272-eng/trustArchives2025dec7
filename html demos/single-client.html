@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل العميل - أرشيف الثقة التجارية</title>
+        
+    <!-- جميع الروابط السابقة تبقى كما هي -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&family=Noto+Naskh+Arabic:wght@400..700&family=Noto+Sans+Arabic:wght@100..900&family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400..700&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+    <!-- css Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/single-client.css">
+    <style>
+        
+    </style>
+</head>
+<body class="theme1">  
+
+ <!-- زر تغيير الثيم -->
+    <button class="change-theme" id="theme-toggle">
+     <i class="fa-solid fa-palette"></i>
+    </button>
+        
+<header class="header" id="header">
+    <a href="dashboard.html" class="logo-container">
+        <div class="logo"> </div>
+        <div class="logo-text">أرشيف الثقة التجارية</div>
+    </a>
+    <button class="nav-toggle" aria-label="Toggle navigation menu"><i class="fas fa-align-left"></i></button>
+    <nav class="main-menu">
+        <a href="dashboard.html" class="menu-item active"><i class="fas fa-home"></i> الرئيسية</a>
+        <div class="dropdown menu-item">
+            <a href="#" class=" dropdown-toggle">
+                <i class="fas fa-plus-circle"></i> إضافة <i class="fas fa-caret-down"></i>
+            </a>
+            <div class="dropdown-menu">
+                <a href="add-product.html" class="dropdown-item"><i class="fas fa-plus-circle"></i> إضافة منتج</a>
+                <a href="add-supplier.html" class="dropdown-item"><i class="fas fa-truck-loading "></i> إضافة مورد</a>
+				  <a href="add-customer.html" class="dropdown-item"><i class='fas fa-address-book'></i> اضافة عميل</a>
+				<a href="add-spare-part.html" class="dropdown-item"> <i class="fas fa-cogs"></i>  إضافة قطع غيار</a>
+				<a href="add-operational-accessories.html" class="dropdown-item"> <i class="fas fa-tools"></i>  إضافة مستلزمات التشغيل</a>
+				<a href="offer-price.html" class="dropdown-item"><i class='far fa-credit-card'></i>  انشاء عرض سعر</a>
+            </div>
+        </div>
+        <a href="products-board.html" class="menu-item"><i class="fa-solid fa-cart-plus"></i> المنتجات</a>
+        <a href="suppliers.html" class="menu-item "><i class="fas fa-truck"></i> الموردين</a>
+		 <a href="clients.html" class="menu-item "><i class="fas fa-truck"></i> العملاء</a>
+        <a href="profile.html" class="menu-item"><i class="fas fa-user"></i> ملفي الشخصي</a>        
+        <a href="index.html" class="menu-item logout-btn"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a>
+    </nav>
+</header>  
+  <div class="client-container">
+        <div class="client-header">
+            <img id="clientLogo" src="img/company-1.jpg" alt="شعار العميل" class="client-logo">
+            <div class="single-user-section" id="userHeaderSection">
+                <div class="user-profile-column">
+                    <h2 id="clientName"><i class="fas fa-building"></i> —</h2>
+                    <p id="clientDescription"><i class="fas fa-star"></i> —</p>
+                    <div class="client-rating" id="clientRatingUI">
+                        <div class="stars" id="ratingStars">
+                            <i data-value="1" class="fa-regular fa-star"></i>
+                            <i data-value="2" class="fa-regular fa-star"></i>
+                            <i data-value="3" class="fa-regular fa-star"></i>
+                            <i data-value="4" class="fa-regular fa-star"></i>
+                            <i data-value="5" class="fa-regular fa-star"></i>
+                        </div>
+                        <span id="ratingValue" class="fw600">0/5</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="client-grid">
+            <div class="info-box">
+                <h3><i class="fas fa-info-circle"></i> معلومات الكيان التجاري الأساسية</h3>
+                <p><strong><i class="fas fa-signature"></i> الاسم الرسمي (عربي):</strong> <span id="clientNameAr">—</span></p>
+                <p><strong><i class="fas fa-signature"></i> الاسم الرسمي (إنجليزي):</strong> <span id="clientNameEn">—</span></p>
+                <p><strong><i class="fas fa-file-contract"></i> السجل التجاري:</strong> <span id="commercialRegister">—</span></p>
+                <p><strong><i class="fas fa-globe"></i> البلد / المدينة:</strong> <span id="clientCountryCity">—</span></p>
+                <p><strong><i class="fas fa-map-marker-alt"></i> العنوان الرسمي:</strong> <span id="clientAddress">—</span></p>
+                <p><strong><i class="fas fa-industry"></i> القطاع الصناعي:</strong> <span id="clientIndustry">—</span></p>
+                <p><strong><i class="fas fa-users"></i> حجم الشركة:</strong> <span id="companySize">—</span></p>
+            </div>
+            <div class="info-box">
+                <h3><i class="fas fa-address-book"></i> جهات الاتصال الرئيسية</h3>
+                <p><strong><i class="fas fa-user-tie"></i> اسم جهة الاتصال الرئيسية:</strong> <span id="primaryContactName">—</span></p>
+                <p><strong><i class="fas fa-briefcase"></i> المنصب:</strong> <span id="primaryContactTitle">—</span></p>
+                <p><strong><i class="fas fa-phone"></i> الهاتف المباشر:</strong> <span id="primaryContactPhone">—</span></p>
+                <p><strong><i class="fas fa-envelope"></i> البريد الإلكتروني:</strong> <span id="primaryContactEmail">—</span></p>
+                <p><strong><i class="fas fa-user-cog"></i> جهة الاتصال الفنية:</strong> <span id="technicalContactName">—</span></p>
+                <p><strong><i class="fas fa-phone-alt"></i> هاتف الاتصال الفني:</strong> <span id="technicalContactPhone">—</span></p>
+                <p><strong><i class="fas fa-at"></i> بريد الاتصال الفني:</strong> <span id="technicalContactEmail">—</span></p>
+            </div>
+            <div class="info-box">
+                <h3><i class="fas fa-folder-open"></i> الأرشفة والمتابعة الداخلية</h3>
+                <p><strong><i class="fas fa-file-pdf"></i> المرفقات:</strong> <span id="clientAttachments">—</span></p>
+                <p><strong><i class="fas fa-sticky-note"></i> الملاحظات الداخلية:</strong> <span id="internalNotes">—</span></p>
+                <p><strong><i class="fas fa-calendar-plus"></i> تاريخ الإضافة:</strong> <span id="clientCreatedAt">—</span></p>
+                <p><strong><i class="fas fa-user"></i> الموظف المسؤول:</strong> <span id="responsibleEmployee">—</span></p>
+            </div>
+        </div>
+        
+        <div class="quick-actions">
+            <a href="tel:+8613800138000" class="action-btn phone">
+                <i class="fas fa-phone"></i> اتصال
+            </a>
+            <a href="https://wa.me/8613800138000" target="_blank" class="action-btn whatsapp">
+                <i class="fab fa-whatsapp"></i> واتساب
+            </a>
+            <a href="mailto:info@example.com" class="action-btn email">
+                <i class="fas fa-envelope"></i> إيميل
+            </a>
+            <a href="#" class="action-btn location">
+                <i class="fas fa-map"></i> خريطة
+            </a>
+        </div>
+        
+        <div class="download-section">
+            <a id="clientPdfLink" href="#" class="download-btn">
+                <i class="fas fa-download"></i> تحميل ملف العميل PDF
+            </a>
+            <a href="clients-board.html" class="download-btn">
+                <i class="fa fa-angle-double-right"></i> العودة الى لوحة العملاء
+            </a>
+        </div>
+    </div>
+
+            
+                        
+                        
+
+      
+    <!--  Javascript -->
+    <script src="js/nav.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/theme.js"></script>
+
+</body>
+</html>
