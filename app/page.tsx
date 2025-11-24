@@ -21,18 +21,14 @@ export default function Dashboard() {
       <section id="dashboard" className="section">
         <div className="container">
           <div className="dashboard-header ">
-            <DashboardHero />
-            <HonorBoard />
-          </div>
-
+            
           <TeamRequests />
         </div>
       </section>
 
-      <TeamSlider />
-      <FeatureCards />
+       
       <DataSnapshot />
-      <ChatButtons />
+     
       <Footer />
 
       <div className="scroll-to-top" id="scrollToTop" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
