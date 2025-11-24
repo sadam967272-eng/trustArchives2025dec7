@@ -2,13 +2,12 @@
 
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { DashboardHero } from "@/components/dashboard-hero"
-import { HonorBoard } from "@/components/honor-board"
+ 
 import { TeamRequests } from "@/components/team-requests"
-import { TeamSlider } from "@/components/team-slider"
-import { FeatureCards } from "@/components/feature-cards"
+ 
+ 
 import { DataSnapshot } from "@/components/data-snapshot"
-import { ChatButtons } from "@/components/chat-buttons"
+ 
 import { ThemeToggle } from "@/components/theme-toggle"
 
 export default function Dashboard() {
