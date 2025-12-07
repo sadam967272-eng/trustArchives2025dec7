@@ -1,7 +1,7 @@
 import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 import { ChatButtons } from "@/components/chat-buttons"
 import Link from "next/link"
+import { AdminControls } from "@/components/admin-controls"
 
 export default function ClientPage({ params }: { params: { id: string } }) {
   return (
@@ -11,6 +11,8 @@ export default function ClientPage({ params }: { params: { id: string } }) {
       <Header />
 
       <div className="client-container">
+        <AdminControls id={params.id} editUrl="/add-customer" type="العميل" />
+
         <div className="client-header">
           <img id="clientLogo" src="/placeholder.svg?height=150&width=150" alt="شعار العميل" className="client-logo" />
           <div className="single-user-section" id="userHeaderSection">
@@ -186,7 +188,6 @@ export default function ClientPage({ params }: { params: { id: string } }) {
         </div>
       </div>
 
-      
       <ChatButtons />
     </>
   )
