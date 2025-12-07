@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Baloo_Bhaijaan_2, Noto_Naskh_Arabic, Noto_Sans_Arabic, Vazirmatn } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { AuthProvider } from "@/components/auth-provider"
 
 const baloo = Baloo_Bhaijaan_2({ subsets: ["arabic"], variable: "--font-baloo" })
 const notoNaskh = Noto_Naskh_Arabic({ subsets: ["arabic"], variable: "--font-noto-naskh" })
@@ -12,7 +13,7 @@ const vazirmatn = Vazirmatn({ subsets: ["arabic"], variable: "--font-vazirmatn" 
 export const metadata: Metadata = {
   title: "الرئيسية - أرشيف الثقة التجارية",
   description: "منصة عملية تساعدك في تخزين بيانات المنتجات و الموردين",
-    generator: 'v0.app'
+  generator: "v0.app",
 }
 
 export default function RootLayout({
@@ -42,7 +43,9 @@ export default function RootLayout({
       <body
         className={`theme1 ${baloo.variable} ${notoNaskh.variable} ${notoSans.variable} ${vazirmatn.variable} font-sans`}
       >
-        <ThemeProvider>{children}</ThemeProvider>
+        <AuthProvider>
+          <ThemeProvider>{children}</ThemeProvider>
+        </AuthProvider>
       </body>
     </html>
   )
