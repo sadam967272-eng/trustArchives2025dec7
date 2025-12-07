@@ -1,7 +1,7 @@
 import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 import { ChatButtons } from "@/components/chat-buttons"
 import Link from "next/link"
+import { AdminControls } from "@/components/admin-controls"
 
 export default function SparePartPage({ params }: { params: { id: string } }) {
   return (
@@ -12,6 +12,8 @@ export default function SparePartPage({ params }: { params: { id: string } }) {
       <Header />
 
       <div className="container">
+        <AdminControls id={params.id} editUrl="/add-spare-part" type="قطعة الغيار" />
+
         <div className="product-container">
           <div id="product-details">
             {/* Upper Section: Product Layout */}
@@ -141,15 +143,33 @@ export default function SparePartPage({ params }: { params: { id: string } }) {
                   <div className="general-info-grid">
                     <div className="general-info-item">
                       <div className="label">
+                        <i className="fas fa-link"></i> حالة الربط
+                      </div>
+                      <div className="value">مرتبط بمنتج</div>
+                    </div>
+                    <div className="general-info-item">
+                      <div className="label">
                         <i className="fas fa-cube"></i> المنتج الأساسي المُرتبط
                       </div>
                       <div className="value">خلاطة خرسانة</div>
                     </div>
                     <div className="general-info-item">
                       <div className="label">
-                        <i className="fas fa-folder-open"></i> الفئة الفرعية لقطعة الغيار
+                        <i className="fas fa-folder-open"></i> الفئة الفرعية
                       </div>
                       <div className="value">محركات</div>
+                    </div>
+                    <div className="general-info-item">
+                      <div className="label">
+                        <i className="fas fa-barcode"></i> رقم القطعة (Part Number)
+                      </div>
+                      <div className="value">PN-123456</div>
+                    </div>
+                    <div className="general-info-item">
+                      <div className="label">
+                        <i className="fas fa-copyright"></i> العلامة التجارية للقطعة
+                      </div>
+                      <div className="value">Bosch</div>
                     </div>
                     <div className="general-info-item">
                       <div className="label">
@@ -162,6 +182,12 @@ export default function SparePartPage({ params }: { params: { id: string } }) {
                         <i className="fas fa-book"></i> رقم دليل الأجزاء
                       </div>
                       <div className="value">MN-500</div>
+                    </div>
+                    <div className="general-info-item">
+                      <div className="label">
+                        <i className="fas fa-barcode"></i> الرقم التسلسلي (System Serial)
+                      </div>
+                      <div className="value">SP-{params.id}</div>
                     </div>
                     <div className="general-info-item">
                       <div className="label">
@@ -201,7 +227,6 @@ export default function SparePartPage({ params }: { params: { id: string } }) {
         </div>
       </div>
 
-       
       <ChatButtons />
     </>
   )
