@@ -1,8 +1,6 @@
 "use client"
 
 import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
-import { ChatButtons } from "@/components/chat-buttons"
 import { ThemeToggle } from "@/components/theme-toggle"
 import Link from "next/link"
 
@@ -26,7 +24,20 @@ export default function AddClientPage() {
                 <h2 className="product-section-title">
                   <i className="fas fa-building"></i> معلومات العميل الأساسية
                 </h2>
+
                 <div className="product-form-grid">
+                  <div className="product-form-group full-width" style={{ gridColumn: "1 / -1" }}>
+                    <label className="product-form-label">
+                      <i className="fas fa-barcode"></i> الرقم التسلسلي للعميل (تلقائي)
+                    </label>
+                    <input
+                      type="text"
+                      className="product-form-input bg-gray-100 cursor-not-allowed"
+                      defaultValue={`CLT-${Math.floor(Math.random() * 1000000)}`}
+                      readOnly
+                    />
+                  </div>
+
                   <div className="product-form-group">
                     <label className="product-form-label" htmlFor="companyNameAr">
                       <i className="fas fa-building"></i> الاسم الرسمي للشركة (عربي) *
@@ -217,8 +228,7 @@ export default function AddClientPage() {
         </div>
       </div>
 
-      <ChatButtons />
-      
+      {/* ChatButtons removed */}
     </>
   )
 }
