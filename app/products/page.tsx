@@ -1,10 +1,9 @@
 "use client"
 
 import { useState } from "react"
-import { getProducts } from "@/lib/data"
+import { getProducts, PRODUCT_CATEGORIES } from "@/lib/data"
 import { ProductCard } from "@/components/product-card"
 import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 import { ChatButtons } from "@/components/chat-buttons"
 
 export default function ProductsPage() {
@@ -47,7 +46,7 @@ export default function ProductsPage() {
             color: "var(--primary-color)",
           }}
         >
-           「  الاقسام  」   
+          「 الاقسام 」
         </h3>
         <div
           style={{
@@ -147,28 +146,15 @@ export default function ProductsPage() {
               <div className="filter-group">
                 <select id="categoryFilter" onChange={(e) => setCategoryFilter(e.target.value)}>
                   <option value="">جميع الفئات</option>
-                  <optgroup label="البريكاست">
-                    <option value="بريكاست إنشائي">بريكاست إنشائي</option>
-                    <option value="بريكاست للبنية التحتية">بريكاست للبنية التحتية</option>
-                    <option value="بريكاست معماري/ديكوري">بريكاست معماري/ديكوري</option>
-                  </optgroup>
-                  <optgroup label="الماكينات">
-                    <option value="ماكينات البناء والإنشاءات">ماكينات البناء والإنشاءات</option>
-                    <option value="ماكينات الورشة">ماكينات الورشة</option>
-                    <option value="ماكينات التشغيل والصيانة">ماكينات التشغيل والصيانة</option>
-                  </optgroup>
-                  <optgroup label="خطوط الإنتاج">
-                    <option value="خطوط إنتاج مواد غذائية">خطوط إنتاج مواد غذائية</option>
-                    <option value="خطوط إنتاج مواد بناء">خطوط إنتاج مواد بناء</option>
-                    <option value="خطوط تجميع وتصنيع بسيطة">خطوط تجميع وتصنيع بسيطة</option>
-                  </optgroup>
-                  <optgroup label="المعدات الصناعية">
-                    <option value="معدات رفع ومناولة">معدات رفع ومناولة</option>
-                    <option value="أدوات كهربائية صناعية">أدوات كهربائية صناعية</option>
-                    <option value="معدات السلامة والأمان">معدات السلامة والأمان</option>
-                    <option value="مولدات الطاقة">مولدات الطاقة</option>
-                  </optgroup>
-                  <option value="إلكترونيات">إلكترونيات</option>
+                  {Object.entries(PRODUCT_CATEGORIES).map(([category, subCategories]) => (
+                    <optgroup key={category} label={category}>
+                      {subCategories.map((subCat) => (
+                        <option key={subCat} value={subCat}>
+                          {subCat}
+                        </option>
+                      ))}
+                    </optgroup>
+                  ))}
                 </select>
               </div>
               <div className="filter-group">
@@ -265,7 +251,6 @@ export default function ProductsPage() {
         </div>
       </section>
 
-     
       <ChatButtons />
     </>
   )
