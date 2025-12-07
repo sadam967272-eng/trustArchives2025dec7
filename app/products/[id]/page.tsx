@@ -1,7 +1,7 @@
 import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 import { ChatButtons } from "@/components/chat-buttons"
 import Link from "next/link"
+import { AdminControls } from "@/components/admin-controls"
 
 export default function ProductPage({ params }: { params: { id: string } }) {
   return (
@@ -12,6 +12,9 @@ export default function ProductPage({ params }: { params: { id: string } }) {
       <Header />
 
       <div className="container">
+        {/* Added AdminControls at the top of the container */}
+        <AdminControls id={params.id} editUrl="/add-product" type="المنتج" />
+
         <div className="product-container">
           <div id="product-details">
             {/* Upper Section: Product Layout */}
@@ -185,6 +188,12 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                     </div>
                     <div className="general-info-item">
                       <div className="label">
+                        <i className="fas fa-barcode"></i> الرقم التسلسلي (SKU)
+                      </div>
+                      <div className="value">PRD-{params.id}</div>
+                    </div>
+                    <div className="general-info-item">
+                      <div className="label">
                         <i className="fas fa-tags"></i> الكلمات المفتاحية
                       </div>
                       <div className="value">
@@ -206,12 +215,6 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                         <i className="fas fa-calendar-alt"></i> تاريخ الإضافة
                       </div>
                       <div className="value">2023-10-01</div>
-                    </div>
-                    <div className="general-info-item">
-                      <div className="label">
-                        <i className="fas fa-barcode"></i> الكود
-                      </div>
-                      <div className="value">PRD-{params.id}</div>
                     </div>
                   </div>
                 </div>
@@ -239,7 +242,6 @@ export default function ProductPage({ params }: { params: { id: string } }) {
         </div>
       </div>
 
-        
       <ChatButtons />
     </>
   )
