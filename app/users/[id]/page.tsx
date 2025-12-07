@@ -1,17 +1,20 @@
 import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 import { ChatButtons } from "@/components/chat-buttons"
 import Link from "next/link"
+import { AdminControls } from "@/components/admin-controls"
+import { AdminGuard } from "@/components/admin-guard"
 
 export default function UserPage({ params }: { params: { id: string } }) {
   return (
-    <>
+    <AdminGuard>
       <link rel="stylesheet" href="/css/single-user.css" />
 
       <Header />
 
       <main>
         <div className="single-user-container">
+          <AdminControls id={params.id} editUrl="/users/add" type="المستخدم" />
+
           {/* Profile Section */}
           <div className="single-user-section" id="userHeaderSection">
             <div className="user-profile-column">
@@ -237,8 +240,7 @@ export default function UserPage({ params }: { params: { id: string } }) {
         </div>
       </main>
 
-      
       <ChatButtons />
-    </>
+    </AdminGuard>
   )
 }
