@@ -1,7 +1,7 @@
 import { Header } from "@/components/header"
-import { Footer } from "@/components/footer"
 import { ChatButtons } from "@/components/chat-buttons"
 import Link from "next/link"
+import { AdminControls } from "@/components/admin-controls"
 
 export default function SupplierPage({ params }: { params: { id: string } }) {
   return (
@@ -11,6 +11,8 @@ export default function SupplierPage({ params }: { params: { id: string } }) {
       <Header />
 
       <div className="supplier-container">
+        <AdminControls id={params.id} editUrl="/add-supplier" type="المورد" />
+
         <div className="supplier-header">
           <img
             id="supplierLogo"
@@ -112,33 +114,33 @@ export default function SupplierPage({ params }: { params: { id: string } }) {
             </h3>
             <p>
               <strong>
+                <i className="fas fa-coins"></i> العملة الأساسية :
+              </strong>{" "}
+              <span>USD, CNY</span>
+            </p>
+            <p>
+              <strong>
+                <i className="fas fa-credit-card"></i> شروط الدفع المعتمدة :{" "}
+              </strong>{" "}
+              <span>T/T, L/C</span>{" "}
+            </p>
+            <p>
+              <strong>
+                <i className="fas fa-file-contract"></i> Incoterms :
+              </strong>{" "}
+              <span>FOB, CIF, EXW</span>
+            </p>
+            <p>
+              <strong>
                 <i className="fas fa-shipping-fast"></i> طرق الشحن المتاحة :{" "}
               </strong>{" "}
               <span>بحري، جوي</span>{" "}
             </p>
             <p>
               <strong>
-                <i className="fas fa-credit-card"></i> وسائل الدفع المقبولة :{" "}
-              </strong>{" "}
-              <span>T/T, L/C</span>{" "}
-            </p>
-            <p>
-              <strong>
-                <i className="fas fa-hourglass-half"></i> متوسط زمن الشحن :{" "}
-              </strong>{" "}
-              <span>30-45 يوم</span>{" "}
-            </p>
-            <p>
-              <strong>
                 <i className="fas fa-certificate"></i> شهادات الجودة :{" "}
               </strong>{" "}
               <span>ISO 9001, CE</span>{" "}
-            </p>
-            <p>
-              <strong>
-                <i className="fas fa-star"></i> تقييم الفريق :{" "}
-              </strong>{" "}
-              <span>ممتاز</span>
             </p>
           </div>
           <div className="info-box">
@@ -194,13 +196,19 @@ export default function SupplierPage({ params }: { params: { id: string } }) {
             </h3>
             <p>
               <strong>
+                <i className="fas fa-industry"></i> التخصص الرئيسي :
+              </strong>{" "}
+              <span>الماكينات، خطوط الإنتاج</span>
+            </p>
+            <p>
+              <strong>
                 <i className="fas fa-users"></i> حجم الشركة :
               </strong>{" "}
               <span>500+ موظف</span>
             </p>
             <p>
               <strong>
-                <i className="fas fa-tachometer-alt"></i> الطاقة الإنتاجية :
+                <i className="fas fa-tachometer-alt"></i> الطاقة الإنتاجية السنوية :
               </strong>{" "}
               <span>1000 وحدة/شهر</span>
             </p>
@@ -215,6 +223,18 @@ export default function SupplierPage({ params }: { params: { id: string } }) {
                 <i className="fas fa-hard-hat"></i> عدد المهندسين :
               </strong>{" "}
               <span>50</span>
+            </p>
+            <p>
+              <strong>
+                <i className="fas fa-clipboard-list"></i> تقارير الاختبار :
+              </strong>{" "}
+              <span>متوفرة</span>
+            </p>
+            <p>
+              <strong>
+                <i className="fas fa-eye"></i> إمكانية التدقيق :
+              </strong>{" "}
+              <span>نعم</span>
             </p>
             <p>
               <strong>
@@ -276,15 +296,27 @@ export default function SupplierPage({ params }: { params: { id: string } }) {
           </p>
           <p>
             <strong>
+              <i className="fas fa-credit-card"></i> شروط الدفع المعتمدة :{" "}
+            </strong>{" "}
+            <span>T/T, L/C</span>{" "}
+          </p>
+          <p>
+            <strong>
               <i className="fas fa-file-contract"></i> Incoterms :
             </strong>{" "}
             <span>FOB, CIF, EXW</span>
           </p>
           <p>
             <strong>
-              <i className="fas fa-clipboard-check"></i> تقارير الاختبار :
+              <i className="fas fa-shipping-fast"></i> طرق الشحن المتاحة :{" "}
             </strong>{" "}
-            <span>متاحة عند الطلب</span>
+            <span>بحري، جوي</span>{" "}
+          </p>
+          <p>
+            <strong>
+              <i className="fas fa-certificate"></i> شهادات الجودة :{" "}
+            </strong>{" "}
+            <span>ISO 9001, CE</span>{" "}
           </p>
           <p>
             <strong>
@@ -391,7 +423,6 @@ export default function SupplierPage({ params }: { params: { id: string } }) {
         </Link>
       </div>
 
-       
       <ChatButtons />
     </>
   )
